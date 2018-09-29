@@ -1,0 +1,31 @@
+/*Overview
+ The model predicts the area burnt due to forest fire based on temperature, rain, RH, wind, ISI, DMC, FFMC, month, day. The model works uses multiple linear regression to predict. Furthermore, backward elimination is used to optimise and develop a better testing model.
+
+This is a step by step guide on how the model works:
+We have to import three libraries
+Step 1:Importing Libraries
+We have to import three libraries: Pandas, numpy, matplotlib
+Pandas is used for importing dataset and arranging it.
+Numpy is used to take care the missing data in the dataset.
+Matplotlib is used for the visualisation of the test, train and prediction.
+We are renaming pandas as pd, numpy as np, matplotlib as matplt 
+
+Step 2: Importing Dataset
+The dataset file 'forest_fire.csv' is initialised in the variable 'dataset' using a function 'read_csv()' from pandas library.
+The columns from 1 to 12 is assigned to a variable 'X' .The column is 
+dataset= pd.read_csv('forest_data.csv')
+X=dataset.iloc[:,1:12].values
+y=dataset.iloc[:,-1].values
+*\
+
+
+import numpy as np
+import matplotlib as matlp
+import pandas as pd
+
+
+#Importing Dataset
+
+dataset= pd.read_csv('forest_data.csv')
+X=dataset.iloc[:,1:12].values
+y=dataset.iloc[:,-1].values
