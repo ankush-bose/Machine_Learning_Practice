@@ -1,0 +1,114 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+
+#Importing dataset  
+dataset_train=pd.read_csv('training_dataset.csv')
+dataset_test=pd.read_csv('testing_dataset.csv')
+
+
+s=dataset_train.isnull().values.any()
+
+
+print(s)
+X_train=dataset_train.iloc[:,[1,2,3,4,5,6,7,8,9,10,11,12,13,14]].values
+y_train=dataset_train.iloc[:,20].values
+X_test=dataset_test.iloc[:,[1,2,3,4,5,6,7,8,9,10,11,12,13,14]].values
+y_test=dataset_test.iloc[:,20].values
+
+
+
+
+
+#Splitting
+from sklearn.cross_validation import train_test_split
+X_train, X_test, y_train, y_test=train_test_split(X,y,test_size=0.2,random_state=0)
+
+
+#Feature scaling
+from sklearn.preprocessing import StandardScaler
+sc=StandardScaler()
+X_train=sc.fit_transform(X_train)
+X_test=sc.transform(X_test)
+
+#Fitting Logistic Regression to the training set
+from sklearn.linear_model import LogisticRegression
+classifier=LogisticRegression(random_state=0)
+classifier.fit(X_train,y_train)
+
+
+#PRedicting the test set results
+y_pred =classifier.predict(X_test)
+
+classifier.score(X_test,y_test)
+
+#MAking confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm=confusion_matrix(y_test, y_pred)
+print(cm)
+
+
+
+#USing SVM
+#feature scaling 
+from sklearn.preprocessing import StandardScaler
+sc=StandardScaler()
+X_train=sc.fit_transform(X_train)
+X_test=sc.transform(X_test)
+
+
+#Fitting SVM to training set
+from sklearn.svm import SVC
+#classifier=SVC(kernel='linear',random_state=0)
+#classifier=SVC(C=1.0,kernel='rbf',random_state=0)
+#classifier=SVC(C=1.0,kernel='poly',random_state=0)
+classifier=SVC(kernel='linear',random_state=0)
+classifier.fit(X_train,y_train)
+
+#PRedicting the test set resilts
+y_pred=classifier.predict(X_test)
+classifier.score(X_test,y_test)
+
+#Making th econfusion Matrix
+from sklearn.metrics import confusion_matrix
+cm=confusion_matrix(y_test,y_pred)
+
+
+X_opt = X[:,[0,1,2,3,4,5]]
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+
+import statsmodels.formula.api as sm
+X_opt = X[:,[2,6,7,8,9,10,11,12,13,15,16,17,18,19]]
+classifier_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+classifier_OLS.summary()
+
+
+
+#Fitting Random Forest to the training set
+from sklearn.ensemble import RandomForestClassifier
+classifier=RandomForestClassifier(n_estimators=1000,criterion='entropy',random_state=0)
+classifier.fit(X_train,y_train)
+
+#Predicting the test set resilts
+y_pred=classifier.predict(X_test)
+classifier.score(X_test,y_test)
+
+#Making th econfusion Matrix
+from sklearn.metrics import confusion_matrix
+cm=confusion_matrix(y_test,y_pred)
+
+
+
+
+
+
+
+
+
+
