@@ -37,3 +37,9 @@ y_pred = regressor.predict(X_test)
 
 regressor.score(X_test,y_test)
 
+
+
+
+#Visualisation
+sns.set(color_codes=True)
+train = sns.load_dataset("assists")
