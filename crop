@@ -1,0 +1,6 @@
+import numpy as np
+import matplotlib as matplt
+import pandas as pd
+
+#Import Dataset
+dataset=pd.read_csv
