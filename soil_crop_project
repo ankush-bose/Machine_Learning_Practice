@@ -19,3 +19,6 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
+
+regressor.score(X_test,y_test)
+sample=y_pred
