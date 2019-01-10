@@ -22,3 +22,9 @@ regressor.fit(X_train, y_train)
 
 regressor.score(X_test,y_test)
 sample=y_pred
+
+
+size=len(sample)
+for i in range(size):
+    if (sample[i]<0):
+        sample[i]=0.0
