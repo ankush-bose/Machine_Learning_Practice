@@ -1,0 +1,5 @@
+a=15
+b=a*2
+print(c(a,b))
+# press ctrl +Shift + C
+# rm(variable) to delete a variable
