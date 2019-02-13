@@ -6,3 +6,6 @@ import pandas as pd
 dataset=pd.read_csv('file location')
 X=dataset.iloc[]
 y=dataset.iloc[]
+
+
+import sklearn.preprocessing
